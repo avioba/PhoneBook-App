@@ -1,0 +1,121 @@
+<div>
+  <h5>טופס להוספת מנוי</h5>
+  <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <input type="hidden" name="id" [value]="service.formData.id" />
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i
+              class="fas fa-user-friends"
+              [class.green-icon]="family.valid"
+              [class.red-icon]="family.invalid && family.touched"
+            ></i>
+          </div>
+        </div>
+        <input
+          id="family-input"
+          name="family"
+          #family="ngModel"
+          [(ngModel)]="service.formData.family"
+          class="form-control"
+          placeholder="משפחה-אשה-בעל"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i
+              class="fas fa-phone"
+              [class.red-icon]="phone1.invalid && phone1.touched"
+            ></i>
+          </div>
+        </div>
+        <input
+          name="phone1"
+          #phone1="ngModel"
+          [(ngModel)]="service.formData.phone1"
+          class="form-control"
+          placeholder="טלפון-1"
+          maxlength="7"
+        />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i
+              class="fas fa-mobile-alt"
+              [class.red-icon]="phone2.invalid && phone2.touched"
+            ></i>
+          </div>
+        </div>
+        <input
+          name="phone2"
+          #phone2="ngModel"
+          [(ngModel)]="service.formData.phone2"
+          class="form-control"
+          placeholder="טלפון-2"
+          maxlength="11"
+        />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i
+              class="fas fa-mobile-alt"
+              [class.red-icon]="phone3.invalid && phone3.touched"
+            ></i>
+          </div>
+        </div>
+        <input
+          name="phone3"
+          #phone3="ngModel"
+          [(ngModel)]="service.formData.phone3"
+          class="form-control"
+          placeholder="טלפון-3"
+          maxlength="11"
+        />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i
+              class="far fa-envelope"
+              [class.red-icon]="pobox.invalid && pobox.touched"
+            ></i>
+          </div>
+        </div>
+        <input
+          name="pobox"
+          #pobox="ngModel"
+          [(ngModel)]="service.formData.pobox"
+          class="form-control"
+          placeholder="ת.ד."
+          maxlength="3"
+        />
+      </div>
+    </div>
+    <div class="form-group">
+      <button
+        class="btn btn-success btn-lg btn-block"
+        type="submit"
+        [disabled]="form.invalid"
+      >
+        <i class="fas fa-database"></i> Submit
+      </button>
+    </div>
+  </form>
+</div>

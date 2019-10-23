@@ -1,0 +1,37 @@
+<div>
+  <h4>טבלת מנויים</h4>
+  <table
+    datatable
+    [dtOptions]="dtOptions"
+    [dtTrigger]="dtTrigger"
+    class="table table-hover"
+  >
+    <thead class="thead">
+      <tr>
+        <th>מספר</th>
+        <th>משפחה-אשה-בעל</th>
+        <th>טלפון-1</th>
+        <th>טלפון-2</th>
+        <th>טלפון-3</th>
+        <th>ת.ד.</th>
+        <th>מחיקה</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let sub of service.list">
+        <td (click)="populateForm(sub)">{{ sub.id }}</td>
+        <td (click)="populateForm(sub)">{{ sub.family }}</td>
+        <td (click)="populateForm(sub)">{{ sub.phone1 }}</td>
+        <td (click)="populateForm(sub)">{{ sub.phone2 }}</td>
+        <td (click)="populateForm(sub)">{{ sub.phone3 }}</td>
+        <td (click)="populateForm(sub)">{{ sub.pobox }}</td>
+        <td>
+          <i
+            class="far fa-trash-alt fa-lg text-danger"
+            (click)="onDelete(sub.id)"
+          ></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
